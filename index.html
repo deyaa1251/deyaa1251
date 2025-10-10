@@ -1,15 +1,18 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>colah's blog</title>
+    
+    <!-- Computer Modern Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/edwardtufte/tufte-css@gh-pages/latex.css"/>
     
     <!-- Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
@@ -17,28 +20,53 @@
     
     <style>
         body {
-            font-family: 'Droid Serif', serif;
-            font-size: 18px;
-            line-height: 1.7;
-            color: #333;
-            background-color: #fff;
+            font-family: et-book, 'Droid Serif', Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+            background-color: #fffff8;
+            color: #111;
+            max-width: 1400px;
+            margin: 0 auto;
         }
         
-        /* Navbar styling similar to colah's */
-        .navbar {
-            margin-bottom: 40px;
-            border: none;
-            border-radius: 0;
+        /* Sticky footer */
+        html {
+            position: relative;
+            min-height: 100%;
         }
         
+        body {
+            margin-bottom: 60px;
+        }
+        
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #f5f5f5;
+        }
+        
+        /* Navbar */
         .navbar-inverse {
             background-color: #222;
             border-color: #080808;
         }
         
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+            border: none;
+        }
+        
         .navbar-brand {
             font-size: 20px !important;
-            font-weight: normal;
+        }
+        
+        .navbar-inverse .navbar-brand {
+            color: #999;
+        }
+        
+        .navbar-inverse .navbar-brand:hover {
+            color: #fff;
         }
         
         .navbar-inverse .navbar-nav > li > a {
@@ -49,185 +77,173 @@
             color: #fff;
         }
         
-        /* Main content */
+        /* Content */
+        #content {
+            padding-top: 40px;
+            min-height: 500px;
+        }
+        
         .container {
             max-width: 900px;
         }
         
-        #content {
-            margin-top: 30px;
-        }
-        
-        /* Post styling */
-        .post-list {
+        /* Post list */
+        #posts {
             list-style: none;
             padding: 0;
         }
         
-        .post-list li {
-            margin-bottom: 50px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 30px;
+        #posts li {
+            margin-bottom: 40px;
         }
         
-        .post-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .post-title {
-            font-size: 32px;
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-        
-        .post-title a {
-            color: #337ab7;
-            text-decoration: none;
-        }
-        
-        .post-title a:hover {
-            color: #23527c;
-            text-decoration: underline;
-        }
-        
-        .post-date {
-            color: #999;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-        
-        .post-excerpt {
-            font-size: 18px;
-            line-height: 1.7;
-            color: #555;
-        }
-        
-        .post-excerpt p {
-            margin-bottom: 15px;
-        }
-        
-        .read-more {
-            color: #337ab7;
-            text-decoration: none;
+        #posts h2 {
+            font-size: 28px;
+            margin: 0 0 10px 0;
             font-weight: normal;
         }
         
-        .read-more:hover {
-            text-decoration: underline;
+        #posts h2 a {
+            color: #333;
+            text-decoration: none;
         }
         
-        /* Cover images */
-        .post-cover {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px 0;
-            border-radius: 3px;
+        #posts h2 a:hover {
+            color: #000;
+        }
+        
+        #posts b {
+            font-weight: 600;
+        }
+        
+        .post-description {
+            color: #555;
+            font-size: 17px;
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+        
+        /* Links */
+        a {
+            color: #0074D9;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
         }
         
         /* Footer */
         #footer {
-            margin-top: 80px;
-            padding: 30px 0;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #e7e7e7;
+            padding: 20px 0;
             text-align: center;
             color: #999;
             font-size: 14px;
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            body {
-                font-size: 16px;
-            }
-            
-            .post-title {
-                font-size: 26px;
-            }
-            
-            .post-excerpt {
-                font-size: 16px;
-            }
+        /* Special notices */
+        .notice {
+            background-color: #f9f9f9;
+            border-left: 4px solid #ddd;
+            padding: 15px 20px;
+            margin: 30px 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        hr {
+            border: 0;
+            border-top: 1px solid #e7e7e7;
+            margin: 40px 0;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand active" href="/" style="font-size:20px;">your name's blog</a>
+    <div id="wrap">
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand active" href="/" style="font-size:20px;">colah's blog</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/"><span class="glyphicon glyphicon-pencil"></span>  Blog</a></li>
+                        <li><a href="/about.html"><span class="glyphicon glyphicon-user"></span>  About</a></li>
+                        <li><a href="/contact.html"><span class="glyphicon glyphicon-envelope"></span>  Contact</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/"><span class="glyphicon glyphicon-pencil"></span> Blog</a></li>
-                    <li><a href="/about.html"><span class="glyphicon glyphicon-user"></span> About</a></li>
-                    <li><a href="/archive.html"><span class="glyphicon glyphicon-folder-open"></span> Archive</a></li>
-                    <li><a href="https://github.com/deyaa1251"><span class="glyphicon glyphicon-envelope"></span> Github</a></li>
+        </nav>
+
+        <div id="content">
+            <div class="container">
+                <div class="notice">
+                    <p><b>Writing rough notes</b> allows me share more content, since polishing takes lots of time. While I hope it's useful, it's likely lower quality and less carefully considered than my usual articles.</p>
+                    <p style="margin-bottom:0;">Sometimes I write <a href="https://twitter.com/ch402">twitter threads</a> as a low-effort way to express something I'd have written an essay about if I had more time.</p>
+                </div>
+
+                <ul id="posts">
+                    <li>
+                        <h2><a href="/posts/2019-05-Collaboration/"><b>Collaboration & Credit Principles</b></a></h2>
+                        <p class="post-description">
+                            A lot of research happens in collaborations. This post discusses principles for attribution and credit in research collaborations.
+                        </p>
+                    </li>
+                    
+                    <li>
+                        <h2><a href="/posts/2015-09-Visual-Information/"><b>Visual Information Theory</b></a></h2>
+                        <p class="post-description">
+                            Information theory can seem intimidating, but it doesn't have to be. Many core ideas can be explained completely visually!
+                        </p>
+                    </li>
+                    
+                    <li>
+                        <h2><a href="/posts/2015-08-Understanding-LSTMs/"><b>Understanding LSTM Networks</b></a></h2>
+                        <p class="post-description">
+                            A visual and intuitive understanding of Long Short-Term Memory networks, a special kind of recurrent neural network.
+                        </p>
+                    </li>
+                    
+                    <li>
+                        <h2><a href="/posts/2015-08-Backprop/"><b>Calculus on Computational Graphs: Backpropagation</b></a></h2>
+                        <p class="post-description">
+                            Backpropagation is the key algorithm that makes training deep models computationally tractable. This post explores it through the lens of computational graphs.
+                        </p>
+                    </li>
+                    
+                    <li>
+                        <h2><a href="/posts/2014-07-NLP-RNNs-Representations/"><b>Deep Learning, NLP, and Representations</b></a></h2>
+                        <p class="post-description">
+                            In the last few years, deep learning has led to significant advances in natural language processing. This post explores why.
+                        </p>
+                    </li>
                 </ul>
+                
+                <hr>
+                
+                <p style="font-weight: bold; font-size: 120%; text-align: center;">
+                    <a href="/archive.html">See the complete list of posts.</a>
+                </p>
             </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div id="content">
-        <div class="container">
-            <ul class="post-list">
-                <!-- Post 1 -->
-                <li>
-                    <h2 class="post-title">
-                        <a href="/posts/first-post.html">Understanding Neural Networks</a>
-                    </h2>
-                    <div class="post-date">October 10, 2025</div>
-                    <div class="post-excerpt">
-                        <p>Neural networks are fascinating computational models inspired by biological neural networks. In this post, I explore the fundamental concepts behind how they work and why they're so powerful for machine learning tasks.</p>
-                        <p>We'll look at the basic building blocks: neurons, layers, activation functions, and how backpropagation enables these networks to learn from data.</p>
-                    </div>
-                    <a href="/posts/first-post.html" class="read-more">Read more...</a>
-                </li>
-
-                <!-- Post 2 -->
-                <li>
-                    <h2 class="post-title">
-                        <a href="/posts/second-post.html">Visualizing Data with D3.js</a>
-                    </h2>
-                    <div class="post-date">October 1, 2025</div>
-                    <div class="post-excerpt">
-                        <p>Data visualization is a powerful way to communicate complex information. D3.js is one of the most flexible and powerful libraries for creating interactive visualizations on the web.</p>
-                        <p>In this tutorial, we'll build an interactive chart from scratch and explore the key concepts that make D3 so versatile.</p>
-                    </div>
-                    <a href="/posts/second-post.html" class="read-more">Read more...</a>
-                </li>
-
-                <!-- Post 3 -->
-                <li>
-                    <h2 class="post-title">
-                        <a href="/posts/third-post.html">Getting Started with GitHub Pages</a>
-                    </h2>
-                    <div class="post-date">September 15, 2025</div>
-                    <div class="post-excerpt">
-                        <p>GitHub Pages is a fantastic way to host a personal blog or portfolio website for free. This guide walks through the process of setting up your own site, from creating the repository to deploying your first post.</p>
-                    </div>
-                    <a href="/posts/third-post.html" class="read-more">Read more...</a>
-                </li>
-            </ul>
         </div>
     </div>
 
-    <!-- Footer -->
     <div id="footer">
         <div class="container">
-            <p>© 2025 Your Name. All opinions are my own.</p>
+            <p class="text-muted">
+                © Christopher Olah 2025 -- All opinions are my own
+            </p>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
