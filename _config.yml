@@ -1,0 +1,4 @@
+name: Deyaa
+markdown: kramdown
+highlighter: rouge
+permalink: /posts/:title
