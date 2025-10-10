@@ -1,17 +1,123 @@
----
-layout: default
-title: Your Blog
----
-
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
-      <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-      <div class="date">{{ post.date | date: "%B %e, %Y" }}</div>
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-      <a href="{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        header {
+            border-bottom: 1px solid #e1e4e8;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        nav {
+            margin-top: 10px;
+        }
+        
+        nav a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #0366d6;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .post {
+            margin-bottom: 50px;
+        }
+        
+        .post h2 {
+            margin-bottom: 5px;
+        }
+        
+        .post h2 a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        
+        .post h2 a:hover {
+            text-decoration: underline;
+        }
+        
+        .date {
+            color: #586069;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .excerpt {
+            color: #24292e;
+        }
+        
+        .read-more {
+            color: #0366d6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #e1e4e8;
+            color: #586069;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Blog</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about.html">About</a>
+            <a href="https://github.com/deyaa1251">GitHub</a>
+        </nav>
+    </header>
+    
+    <main>
+        <article class="post">
+            <h2><a href="/posts/first-post.html">My First Blog Post</a></h2>
+            <div class="date">October 10, 2025</div>
+            <div class="excerpt">
+                <p>Welcome to my new blog! This is where I'll share my thoughts on technology, programming, and whatever else interests me.</p>
+            </div>
+            <a href="/posts/first-post.html" class="read-more">Read more →</a>
+        </article>
+        
+        <article class="post">
+            <h2><a href="/posts/getting-started.html">Getting Started with GitHub Pages</a></h2>
+            <div class="date">October 9, 2025</div>
+            <div class="excerpt">
+                <p>A quick guide on how I set up this blog using GitHub Pages and some basic HTML and CSS.</p>
+            </div>
+            <a href="/posts/getting-started.html" class="read-more">Read more →</a>
+        </article>
+    </main>
+    
+    <footer>
+        <p>© 2025 My Blog. Built with GitHub Pages.</p>
+    </footer>
+</body>
+</html>
