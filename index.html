@@ -1,123 +1,233 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Blog</title>
+    
+    <!-- Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+    
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            font-family: 'Droid Serif', serif;
+            font-size: 18px;
+            line-height: 1.7;
             color: #333;
+            background-color: #fff;
         }
         
-        header {
-            border-bottom: 1px solid #e1e4e8;
-            padding-bottom: 20px;
+        /* Navbar styling similar to colah's */
+        .navbar {
             margin-bottom: 40px;
+            border: none;
+            border-radius: 0;
         }
         
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-            font-weight: 300;
+        .navbar-inverse {
+            background-color: #222;
+            border-color: #080808;
         }
         
-        nav {
-            margin-top: 10px;
+        .navbar-brand {
+            font-size: 20px !important;
+            font-weight: normal;
         }
         
-        nav a {
-            margin-right: 20px;
-            text-decoration: none;
-            color: #0366d6;
+        .navbar-inverse .navbar-nav > li > a {
+            color: #999;
         }
         
-        nav a:hover {
-            text-decoration: underline;
+        .navbar-inverse .navbar-nav > li > a:hover {
+            color: #fff;
         }
         
-        .post {
+        /* Main content */
+        .container {
+            max-width: 900px;
+        }
+        
+        #content {
+            margin-top: 30px;
+        }
+        
+        /* Post styling */
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .post-list li {
             margin-bottom: 50px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 30px;
         }
         
-        .post h2 {
-            margin-bottom: 5px;
+        .post-list li:last-child {
+            border-bottom: none;
         }
         
-        .post h2 a {
-            color: #0366d6;
+        .post-title {
+            font-size: 32px;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .post-title a {
+            color: #337ab7;
             text-decoration: none;
         }
         
-        .post h2 a:hover {
+        .post-title a:hover {
+            color: #23527c;
             text-decoration: underline;
         }
         
-        .date {
-            color: #586069;
-            font-size: 0.9em;
-            margin-bottom: 10px;
+        .post-date {
+            color: #999;
+            font-size: 16px;
+            margin-bottom: 15px;
         }
         
-        .excerpt {
-            color: #24292e;
+        .post-excerpt {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .post-excerpt p {
+            margin-bottom: 15px;
         }
         
         .read-more {
-            color: #0366d6;
+            color: #337ab7;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: normal;
         }
         
         .read-more:hover {
             text-decoration: underline;
         }
         
-        footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #e1e4e8;
-            color: #586069;
-            font-size: 0.9em;
+        /* Cover images */
+        .post-cover {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+        
+        /* Footer */
+        #footer {
+            margin-top: 80px;
+            padding: 30px 0;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            .post-title {
+                font-size: 26px;
+            }
+            
+            .post-excerpt {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>My Blog</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/about.html">About</a>
-            <a href="https://github.com/deyaa1251">GitHub</a>
-        </nav>
-    </header>
-    
-    <main>
-        <article class="post">
-            <h2><a href="/posts/first-post.html">My First Blog Post</a></h2>
-            <div class="date">October 10, 2025</div>
-            <div class="excerpt">
-                <p>Welcome to my new blog! This is where I'll share my thoughts on technology, programming, and whatever else interests me.</p>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand active" href="/" style="font-size:20px;">your name's blog</a>
             </div>
-            <a href="/posts/first-post.html" class="read-more">Read more →</a>
-        </article>
-        
-        <article class="post">
-            <h2><a href="/posts/getting-started.html">Getting Started with GitHub Pages</a></h2>
-            <div class="date">October 9, 2025</div>
-            <div class="excerpt">
-                <p>A quick guide on how I set up this blog using GitHub Pages and some basic HTML and CSS.</p>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/"><span class="glyphicon glyphicon-pencil"></span> Blog</a></li>
+                    <li><a href="/about.html"><span class="glyphicon glyphicon-user"></span> About</a></li>
+                    <li><a href="/archive.html"><span class="glyphicon glyphicon-folder-open"></span> Archive</a></li>
+                    <li><a href="https://github.com/deyaa1251"><span class="glyphicon glyphicon-envelope"></span> Github</a></li>
+                </ul>
             </div>
-            <a href="/posts/getting-started.html" class="read-more">Read more →</a>
-        </article>
-    </main>
-    
-    <footer>
-        <p>© 2025 My Blog. Built with GitHub Pages.</p>
-    </footer>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="content">
+        <div class="container">
+            <ul class="post-list">
+                <!-- Post 1 -->
+                <li>
+                    <h2 class="post-title">
+                        <a href="/posts/first-post.html">Understanding Neural Networks</a>
+                    </h2>
+                    <div class="post-date">October 10, 2025</div>
+                    <div class="post-excerpt">
+                        <p>Neural networks are fascinating computational models inspired by biological neural networks. In this post, I explore the fundamental concepts behind how they work and why they're so powerful for machine learning tasks.</p>
+                        <p>We'll look at the basic building blocks: neurons, layers, activation functions, and how backpropagation enables these networks to learn from data.</p>
+                    </div>
+                    <a href="/posts/first-post.html" class="read-more">Read more...</a>
+                </li>
+
+                <!-- Post 2 -->
+                <li>
+                    <h2 class="post-title">
+                        <a href="/posts/second-post.html">Visualizing Data with D3.js</a>
+                    </h2>
+                    <div class="post-date">October 1, 2025</div>
+                    <div class="post-excerpt">
+                        <p>Data visualization is a powerful way to communicate complex information. D3.js is one of the most flexible and powerful libraries for creating interactive visualizations on the web.</p>
+                        <p>In this tutorial, we'll build an interactive chart from scratch and explore the key concepts that make D3 so versatile.</p>
+                    </div>
+                    <a href="/posts/second-post.html" class="read-more">Read more...</a>
+                </li>
+
+                <!-- Post 3 -->
+                <li>
+                    <h2 class="post-title">
+                        <a href="/posts/third-post.html">Getting Started with GitHub Pages</a>
+                    </h2>
+                    <div class="post-date">September 15, 2025</div>
+                    <div class="post-excerpt">
+                        <p>GitHub Pages is a fantastic way to host a personal blog or portfolio website for free. This guide walks through the process of setting up your own site, from creating the repository to deploying your first post.</p>
+                    </div>
+                    <a href="/posts/third-post.html" class="read-more">Read more...</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <div class="container">
+            <p>© 2025 Your Name. All opinions are my own.</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
