@@ -4,6 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Home - your name's blog</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans">
@@ -40,7 +44,7 @@
         /* Main Wrapper with Background */
         #wrap {
             flex: 1;
-            background: url('./blog images/background.png') center/cover fixed;
+            background: url('./images/background.png') center/cover scroll;
             position: relative;
         }
         
@@ -71,7 +75,19 @@
             background-color: rgba(34, 34, 34, 0.95);
             border-color: #080808;
         }
-        
+        .navbar {
+            min-height: 40px;
+        }
+
+        .navbar-brand {
+            padding: 10px 15px;
+            height: 40px;
+        }
+
+        .navbar-nav > li > a {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
         .navbar-brand {
             color: #999 !important;
             font-size: 18px !important;
