@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{{ page.title }} - Imposter</title>
+    
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+    
+    <!-- Highlight.js for code -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet">
+    
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+    <style>
+        /* Base styling - Clean white background like colah */
+        body {
+            font-family: 'Droid Serif', Georgia, serif;
+            background-color: #fffff8;
+            color: #111;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Navbar - Same as homepage */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+            border: none;
+            min-height: 35px !important;
+            padding: 0 !important;
+        }
+        
+        .navbar .container {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            min-height: 35px !important;
+        }
+        
+        .navbar-inverse {
+            background-color: #222;
+            border-color: #080808;
+            min-height: 35px !important;
+        }
+        
+        .navbar-brand {
+            color: #999 !important;
+            font-size: 16px !important;
+            font-weight: 300;
+            padding: 10px 15px !important;
+            height: 35px !important;
+            line-height: 15px !important;
+        }
+        
+        .navbar-brand:hover {
+            color: #fff !important;
+        }
+        
+        .navbar-inverse .navbar-nav > li > a {
+            color: #999;
+            padding: 10px 15px !important;
+            line-height: 15px !important;
+            height: 35px !important;
+        }
+        
+        .navbar-inverse .navbar-nav > li > a:hover {
+            color: #fff;
+        }
+        
+        /* Main content container */
+        #content {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        
+        .container {
+            max-width: 900px;
+        }
+        
+        /* Two column layout */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        /* Main post content - 8 columns (66%) */
+        .col-md-8 {
+            width: 66.66%;
+            padding: 0 15px;
+        }
+        
+        /* Table of contents sidebar - 4 columns (33%) */
+        .col-md-4 {
+            width: 33.33%;
+            padding: 0 15px;
+        }
+        
+        /* Post title */
+        h1 {
+            font-size: 42px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #333;
+            line-height: 1.2;
+        }
+        
+        /* Post metadata */
+        .info {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .info p {
+            font-family: 'Droid Sans', sans-serif;
+            font-size: 18px;
+            color: #666;
+            margin: 0;
+        }
+        
+        /* Post body typography */
+        #post-body {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        #post-body h2 {
+            font-size: 32px;
+            font-weight: 400;
+            margin: 50px 0 25px 0;
+            color: #333;
+        }
+        
+        #post-body h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 40px 0 20px 0;
+            color: #333;
+        }
+        
+        #post-body h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+            color: #333;
+        }
+        
+        #post-body p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        #post-body a {
+            color: #0074D9;
+            text-decoration: none;
+        }
+        
+        #post-body a:hover {
+            text-decoration: underline;
+        }
+        
+        #post-body ul, #post-body ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        #post-body li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        
+        #post-body blockquote {
+            border-left: 4px solid #0074D9;
+            padding-left: 20px;
+            margin: 30px 0;
+            color: #555;
+            font-style: italic;
+        }
+        
+        /* Images */
+        #post-body img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 3px;
+        }
+        
+        #post-body figure {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        #post-body figcaption {
+            font-size: 15px;
+            color: #777;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        /* Code blocks */
+        #post-body code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            color: #d63384;
+        }
+        
+        #post-body pre {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 25px 0;
+            border: 1px solid #e5e5e5;
+        }
+        
+        #post-body pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        /* Tables */
+        #post-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        #post-body table th,
+        #post-body table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        #post-body table th {
+            background: #f5f5f5;
+            font-weight: 600;
+        }
+        
+        /* Table of contents sidebar */
+        #toc-wrapper {
+            position: sticky;
+            top: 60px;
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
+        }
+        
+        #toc {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #e5e5e5;
+        }
+        
+        #toc h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+            margin-top: 0;
+        }
+        
+        #toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        #toc li {
+            margin-bottom: 8px;
+        }
+        
+        #toc a {
+            color: #0074D9;
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #f5f5f5;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #e7e7e7;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            margin: 0;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .col-md-8, .col-md-4 {
+                width: 100%;
+            }
+            
+            #toc-wrapper {
+                position: static;
+                margin-top: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            
+            #post-body {
+                font-size: 16px;
+            }
+            
+            #post-body h2 {
+                font-size: 26px;
+            }
+            
+            #post-body h3 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/deyaa1251/">Imposter</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/deyaa1251/"><span class="glyphicon glyphicon-pencil"></span> Blog</a></li>
+                    <li><a href="/deyaa1251/about.html"><span class="glyphicon glyphicon-user"></span> About</a></li>
+                    <li><a href="/deyaa1251/contact.html"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <!-- Main post content (66% width) -->
+                <div class="col-md-8">
+                    <h1>{{ page.title }}</h1>
+                    
+                    <div class="info">
+                        <p>Posted on {{ page.date | date: "%B %d, %Y" }}</p>
+                    </div>
+                    
+                    <div id="post-body">
+                        {{ content }}
+                    </div>
+                </div>
+                
+                <!-- Table of contents sidebar (33% width) -->
+                <div class="col-md-4" id="toc-wrapper">
+                    <!-- Auto-generated table of contents goes here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Imposter. All opinions are my own.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    
+    <script>
+        // Syntax highlighting
+        hljs.highlightAll();
+        
+        // Auto-generate table of contents from H2 and H3 headings
+        $(document).ready(function() {
+            var toc = '<div id="toc"><h3>Contents</h3><ul>';
+            var hasHeadings = false;
+            
+            $('#post-body h2, #post-body h3').each(function(i) {
+                hasHeadings = true;
+                var heading = $(this);
+                var title = heading.text();
+                var anchor = 'section-' + i;
+                heading.attr('id', anchor);
+                
+                if (heading.is('h2')) {
+                    toc += '<li><a href="#' + anchor + '">' + title + '</a></li>';
+                } else if (heading.is('h3')) {
+                    toc += '<li style="margin-left:20px;"><a href="#' + anchor + '">• ' + title + '</a></li>';
+                }
+            });
+            
+            toc += '</ul></div>';
+            
+            // Only show TOC if there are headings
+            if (hasHeadings) {
+                $('#toc-wrapper').html(toc);
+            }
+        });
+    </script>
+</body>
+</html>
