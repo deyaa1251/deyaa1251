@@ -4,8 +4,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>{{ page.title }} - Imposter</title>
     
-  
-    
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +32,7 @@
     </script>
     
     <style>
-        /* Base styling */
+        /* Base styling - Clean white background like colah */
         body {
             font-family: 'Droid Serif', Georgia, serif;
             background-color: #fffff8;
@@ -43,21 +41,34 @@
             padding: 0;
         }
         
-        /* Navbar */
+        /* Navbar - Same as homepage */
         .navbar {
             margin-bottom: 0;
             border-radius: 0;
             border: none;
+            min-height: 35px !important;
+            padding: 0 !important;
+        }
+        
+        .navbar .container {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            min-height: 35px !important;
         }
         
         .navbar-inverse {
             background-color: #222;
             border-color: #080808;
+            min-height: 35px !important;
         }
         
         .navbar-brand {
             color: #999 !important;
-            font-size: 20px !important;
+            font-size: 16px !important;
+            font-weight: 300;
+            padding: 10px 15px !important;
+            height: 35px !important;
+            line-height: 15px !important;
         }
         
         .navbar-brand:hover {
@@ -66,6 +77,9 @@
         
         .navbar-inverse .navbar-nav > li > a {
             color: #999;
+            padding: 10px 15px !important;
+            line-height: 15px !important;
+            height: 35px !important;
         }
         
         .navbar-inverse .navbar-nav > li > a:hover {
@@ -88,13 +102,13 @@
             flex-wrap: wrap;
         }
         
-        /* Main post content - 8 columns */
+        /* Main post content - 8 columns (66%) */
         .col-md-8 {
             width: 66.66%;
             padding: 0 15px;
         }
         
-        /* Table of contents sidebar - 4 columns */
+        /* Table of contents sidebar - 4 columns (33%) */
         .col-md-4 {
             width: 33.33%;
             padding: 0 15px;
@@ -106,6 +120,7 @@
             font-weight: 400;
             margin-bottom: 20px;
             color: #333;
+            line-height: 1.2;
         }
         
         /* Post metadata */
@@ -126,6 +141,7 @@
         #post-body {
             font-size: 18px;
             line-height: 1.8;
+            color: #333;
         }
         
         #post-body h2 {
@@ -142,8 +158,16 @@
             color: #333;
         }
         
+        #post-body h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+            color: #333;
+        }
+        
         #post-body p {
             margin-bottom: 20px;
+            line-height: 1.8;
         }
         
         #post-body a {
@@ -162,6 +186,15 @@
         
         #post-body li {
             margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        
+        #post-body blockquote {
+            border-left: 4px solid #0074D9;
+            padding-left: 20px;
+            margin: 30px 0;
+            color: #555;
+            font-style: italic;
         }
         
         /* Images */
@@ -170,6 +203,19 @@
             height: auto;
             display: block;
             margin: 30px auto;
+            border-radius: 3px;
+        }
+        
+        #post-body figure {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        #post-body figcaption {
+            font-size: 15px;
+            color: #777;
+            font-style: italic;
+            margin-top: 10px;
         }
         
         /* Code blocks */
@@ -179,6 +225,7 @@
             border-radius: 3px;
             font-family: 'Courier New', monospace;
             font-size: 16px;
+            color: #d63384;
         }
         
         #post-body pre {
@@ -187,17 +234,38 @@
             border-radius: 5px;
             overflow-x: auto;
             margin: 25px 0;
+            border: 1px solid #e5e5e5;
         }
         
         #post-body pre code {
             background: none;
             padding: 0;
+            color: #333;
+        }
+        
+        /* Tables */
+        #post-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        #post-body table th,
+        #post-body table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        #post-body table th {
+            background: #f5f5f5;
+            font-weight: 600;
         }
         
         /* Table of contents sidebar */
         #toc-wrapper {
             position: sticky;
-            top: 80px;
+            top: 60px;
             max-height: calc(100vh - 100px);
             overflow-y: auto;
         }
@@ -206,18 +274,21 @@
             background: #f9f9f9;
             padding: 20px;
             border-radius: 5px;
+            border: 1px solid #e5e5e5;
         }
         
         #toc h3 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             margin-bottom: 15px;
             color: #333;
+            margin-top: 0;
         }
         
         #toc ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
         
         #toc li {
@@ -227,7 +298,8 @@
         #toc a {
             color: #0074D9;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
+            line-height: 1.6;
         }
         
         #toc a:hover {
@@ -273,6 +345,10 @@
             #post-body h2 {
                 font-size: 26px;
             }
+            
+            #post-body h3 {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
@@ -287,13 +363,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html" style="font-size:20px;">Imposter</a>
+                <a class="navbar-brand" href="/deyaa1251/">Imposter</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../../index.html"><i class="fa fa-pencil"></i> Blog</a></li>
-                    <li><a href="../../about.html"><i class="fa fa-user"></i> About</a></li>
-                    <li><a href="../../contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
+                    <li><a href="/deyaa1251/"><span class="glyphicon glyphicon-pencil"></span> Blog</a></li>
+                    <li><a href="/deyaa1251/about.html"><span class="glyphicon glyphicon-user"></span> About</a></li>
+                    <li><a href="/deyaa1251/contact.html"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -303,12 +379,12 @@
     <div id="content">
         <div class="container">
             <div class="row">
-                <!-- Main post content -->
+                <!-- Main post content (66% width) -->
                 <div class="col-md-8">
                     <h1>{{ page.title }}</h1>
                     
                     <div class="info">
-                        <p style="font-family: 'Droid Sans'; font-size: 18px;">Posted on {{ page.date | date: "%B %d, %Y" }}</p>
+                        <p>Posted on {{ page.date | date: "%B %d, %Y" }}</p>
                     </div>
                     
                     <div id="post-body">
@@ -316,9 +392,9 @@
                     </div>
                 </div>
                 
-                <!-- Table of contents sidebar -->
+                <!-- Table of contents sidebar (33% width) -->
                 <div class="col-md-4" id="toc-wrapper">
-                    <!-- Table of contents will be auto-generated here by JavaScript -->
+                    <!-- Auto-generated table of contents goes here -->
                 </div>
             </div>
         </div>
@@ -327,7 +403,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2025 Your Name. All opinions are my own.</p>
+            <p>© 2025 Imposter. All opinions are my own.</p>
         </div>
     </footer>
 
@@ -340,12 +416,13 @@
         // Syntax highlighting
         hljs.highlightAll();
         
-        // Auto-generate table of contents
+        // Auto-generate table of contents from H2 and H3 headings
         $(document).ready(function() {
             var toc = '<div id="toc"><h3>Contents</h3><ul>';
-            var level = 2;
+            var hasHeadings = false;
             
             $('#post-body h2, #post-body h3').each(function(i) {
+                hasHeadings = true;
                 var heading = $(this);
                 var title = heading.text();
                 var anchor = 'section-' + i;
@@ -354,13 +431,14 @@
                 if (heading.is('h2')) {
                     toc += '<li><a href="#' + anchor + '">' + title + '</a></li>';
                 } else if (heading.is('h3')) {
-                    toc += '<li style="margin-left:15px;"><a href="#' + anchor + '">' + title + '</a></li>';
+                    toc += '<li style="margin-left:20px;"><a href="#' + anchor + '">• ' + title + '</a></li>';
                 }
             });
             
             toc += '</ul></div>';
             
-            if ($('#post-body h2, #post-body h3').length > 0) {
+            // Only show TOC if there are headings
+            if (hasHeadings) {
                 $('#toc-wrapper').html(toc);
             }
         });
