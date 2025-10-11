@@ -1,4 +1,44 @@
-name: Deyaa
+# Site settings
+title: Your Name's Blog
+email: your-email@example.com
+description: A blog about machine learning, AI, and technology
+baseurl: "" # Leave empty if using username.github.io
+url: "https://deyaa1251.github.io/deyaa1251"
+
+# Author
+author:
+  name: Your Name
+  email: your-email@example.com
+  github: deyaa1251
+  twitter: yourusername
+
+# Build settings
 markdown: kramdown
 highlighter: rouge
-permalink: /posts/:title
+permalink: /posts/:title/
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /posts/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
