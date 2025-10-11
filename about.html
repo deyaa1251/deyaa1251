@@ -1,148 +1,278 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>About Me - Imposter</title>
     
-    <!-- Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <style>
-        body {
-            font-family: 'Droid Serif', serif;
-            font-size: 18px;
-            line-height: 1.7;
-            color: #333;
-            background-color: #fff;
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
+        /* Sticky Footer Setup */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Droid Serif', Georgia, serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Main Wrapper with Background */
+        #wrap {
+            flex: 1;
+            background: url('./about_me_pic.jpg') center/cover scroll;
+            position: relative;
+        }
+        
+        /* Dark overlay on background */
+        #wrap::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            z-index: 1;
+        }
+        
+        /* Navigation Bar */
         .navbar {
-            margin-bottom: 40px;
-            border: none;
+            margin-bottom: 0;
             border-radius: 0;
+            border: none;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
         .navbar-inverse {
-            background-color: #222;
+            background-color: rgba(34, 34, 34, 0.95);
             border-color: #080808;
         }
         
         .navbar-brand {
-            font-size: 20px !important;
-            font-weight: normal;
+            color: #999 !important;
+            font-size: 18px !important;
+            font-weight: 300;
+        }
+        
+        .navbar-brand:hover,
+        .navbar-brand:focus {
+            color: #fff !important;
         }
         
         .navbar-inverse .navbar-nav > li > a {
             color: #999;
+            transition: color 0.3s;
         }
         
         .navbar-inverse .navbar-nav > li > a:hover {
             color: #fff;
         }
         
+        .navbar-inverse .navbar-nav > li > a i {
+            margin-right: 5px;
+        }
+        
+        /* Container */
         .container {
+            position: relative;
+            z-index: 10;
             max-width: 900px;
+            margin-top: 50px;
+            margin-bottom: 50px;
         }
         
-        #content {
-            margin-top: 30px;
+        /* Profile Container - Grid Layout */
+        .profile-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4);
         }
         
-        h1 {
-            font-size: 42px;
+        /* Profile Content Box */
+        .profile {
+            padding: 60px;
+        }
+        
+        .profile h1 {
+            font-size: 36px;
+            font-weight: 400;
             margin-bottom: 30px;
-            font-weight: normal;
+            color: #333;
         }
         
-        .about-content {
+        .profile p {
             font-size: 18px;
             line-height: 1.8;
-        }
-        
-        .about-content p {
+            color: #555;
             margin-bottom: 20px;
         }
         
-        .about-content a {
-            color: #337ab7;
+        .profile strong {
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+        
+        .profile a {
+            color: #0074D9;
             text-decoration: none;
         }
         
-        .about-content a:hover {
+        .profile a:hover {
             text-decoration: underline;
         }
         
-        #footer {
-            margin-top: 80px;
-            padding: 30px 0;
-            border-top: 1px solid #eee;
+        /* Links Section */
+        .profile-links {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        .profile-links a {
+            margin-right: 20px;
+            font-size: 16px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #f5f5f5;
+            padding: 20px 0;
             text-align: center;
-            color: #999;
+            border-top: 1px solid #e7e7e7;
+            margin-top: auto;
+        }
+        
+        footer p {
+            margin: 0;
+            color: #777;
             font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile {
+                padding: 30px 25px;
+            }
+            
+            .profile h1 {
+                font-size: 28px;
+            }
+            
+            .profile p {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand active" href="/" style="font-size:20px;">your name's blog</a>
+    <div id="wrap">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">your name's blog</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/"><i class="fa fa-pencil"></i> Blog</a></li>
+                        <li><a href="/about.html"><i class="fa fa-user"></i> About</a></li>
+                        <li><a href="/contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/"><span class="glyphicon glyphicon-pencil"></span> Blog</a></li>
-                    <li><a href="/about.html"><span class="glyphicon glyphicon-user"></span> About</a></li>
-                    <li><a href="/archive.html"><span class="glyphicon glyphicon-folder-open"></span> Archive</a></li>
-                    <li><a href="https://github.com/deyaa1251"><span class="glyphicon glyphicon-envelope"></span> Github</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Main Content -->
-    <div id="content">
+        <!-- Main Content -->
         <div class="container">
-            <h1>About Me</h1>
-            <div class="about-content">
-                <p><strong>Your Name</strong>: [Add a brief description about yourself here]</p>
-                
-                <p>I want to understand things clearly and explain them well.</p>
-                
-                <p>This blog is where I share my thoughts on technology, machine learning, programming, and other topics that interest me. My goal is to make complex ideas accessible and to explore interesting problems in depth.</p>
-                
-                <p>You can find me on <a href="https://github.com/deyaa1251">GitHub</a> or <a href="https://twitter.com/yourusername">Twitter</a>.</p>
-                
-                <p style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
-                    My blog should not be taken to reflect the views of any organization I'm affiliated with.
-                </p>
+            <div class="profile-container">
+                <div class="profile">
+                    <h1>About Me</h1>
+                    
+                    <p><strong>Your Name</strong>: Brief tagline about yourself here.</p>
+                    
+                    <p>
+                        I want to understand things clearly and explain them well.
+                    </p>
+                    
+                    <p>
+                        Write a paragraph about your interests, work, or what you do. 
+                        For example: "I'm passionate about machine learning, deep learning, 
+                        and making complex topics accessible through clear explanations and visualizations."
+                    </p>
+                    
+                    <p>
+                        Add more about your background, education, current work, or research interests. 
+                        You can mention what you're working on or what topics you like to explore on this blog.
+                    </p>
+                    
+                    <p>
+                        This blog is where I share my thoughts on [your topics here - e.g., artificial intelligence, 
+                        programming, mathematics, technology, etc.]. I try to explain complex ideas in ways 
+                        that are both rigorous and intuitive.
+                    </p>
+                    
+                    <div class="profile-links">
+                        <a href="https://github.com/deyaa1251">GitHub</a>
+                        <a href="https://twitter.com/yourusername">Twitter</a>
+                        <a href="https://scholar.google.com/yourprofile">Google Scholar</a>
+                    </div>
+                    
+                    <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e5e5; font-size: 15px; color: #777;">
+                        My blog should not be taken to reflect the views of any organization I'm affiliated with.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <div id="footer">
+    <footer>
         <div class="container">
             <p>© 2025 Your Name. All opinions are my own.</p>
         </div>
-    </div>
+    </footer>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
