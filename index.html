@@ -39,7 +39,7 @@
         /* Main Wrapper with Background */
         #wrap {
             flex: 1;
-            background: url('./blog images/background.png') center/cover fixed;
+            background: url('./blog images/background.png') center/cover scroll;
             position: relative;
         }
         
@@ -62,8 +62,9 @@
             margin-bottom: 0;
             border-radius: 0;
             border: none;
-            position: relative;
-            z-index: 100;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
         .navbar-inverse {
@@ -260,41 +261,19 @@
                 <h1>Recent Exciting Things!</h1>
                 
                 <div class="post-grid">
-                    <a href="/posts/transformer-circuits/" class="post-card">
-                        <img src="https://via.placeholder.com/300x180/4A90E2/ffffff?text=Transformer+Circuits" class="post-image" alt="Transformer Circuits">
-                        <div class="post-title">Transformer Circuits</div>
+                    {% for post in site.posts limit:6 %}
+                    <a href="{{ post.url }}" class="post-card">
+                        {% if post.image %}
+                        <img src="{{ post.image }}" class="post-image" alt="{{ post.title }}">
+                        {% else %}
+                        <img src="https://via.placeholder.com/300x180/4A90E2/ffffff?text={{ post.title | url_encode }}" class="post-image" alt="{{ post.title }}">
+                        {% endif %}
+                        <div class="post-title">{{ post.title }}</div>
+                        {% if post.subtitle %}
+                        <div class="post-subtitle">{{ post.subtitle }}</div>
+                        {% endif %}
                     </a>
-                    
-                    <a href="/posts/multimodal-neurons/" class="post-card">
-                        <img src="https://via.placeholder.com/300x180/E94B3C/ffffff?text=Multimodal+Neurons" class="post-image" alt="Multimodal Neurons">
-                        <div class="post-title">Multimodal Neurons</div>
-                        <div class="post-subtitle">On Distill</div>
-                    </a>
-                    
-                    <a href="/posts/circuits/" class="post-card">
-                        <img src="https://via.placeholder.com/300x180/50C878/ffffff?text=Circuits" class="post-image" alt="Circuits">
-                        <div class="post-title">Circuits</div>
-                        <div class="post-subtitle">On Distill</div>
-                    </a>
-                </div>
-                
-                <h2>Neural Networks (General)</h2>
-                
-                <div class="post-grid">
-                    <a href="/posts/nn-manifolds/" class="post-card">
-                        <img src="https://via.placeholder.com/300x180/9B59B6/ffffff?text=NN+Topology" class="post-image" alt="Neural Networks">
-                        <div class="post-title">Neural Networks, Manifolds, and Topology</div>
-                    </a>
-                    
-                    <a href="/posts/deep-learning-nlp/" class="post-card">
-                        <img src="https://via.placeholder.com/300x180/F39C12/ffffff?text=NLP" class="post-image" alt="Deep Learning NLP">
-                        <div class="post-title">Deep Learning, NLP, and Representations</div>
-                    </a>
-                    
-                    <a href="/posts/backprop/" class="post-card">
-                        <img src="https://via.placeholder.com/300x180/1ABC9C/ffffff?text=Backprop" class="post-image" alt="Backpropagation">
-                        <div class="post-title">Calculus on Computational Graphs: Backpropagation</div>
-                    </a>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -303,12 +282,12 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2025 Your Name. All opinions are my own.</p>
+            <p>© 2025 Imposter. All opinions are my own.</p>
         </div>
     </footer>
 
-    <!-- Scripts - jQuery must come before Bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
