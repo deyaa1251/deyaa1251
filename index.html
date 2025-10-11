@@ -286,7 +286,7 @@
                 
                 <div class="post-grid">
                     {% for post in site.posts limit:6 %}
-                    <a href="{{ post.url }}" class="post-card">
+                   <a href="{{ site.baseurl }}{{ post.url }}" class="post-card">
                         {% if post.image %}
                         <img src="{{ post.image }}" class="post-image" alt="{{ post.title }}">
                         {% else %}
