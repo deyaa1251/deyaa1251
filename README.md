@@ -2,6 +2,8 @@
  ***🔭 I’m currently working on ...***
  - ***Host Pale*** your organization's agent to building and configuring self-hosting services like NextCloud Services..
 ### Please if you find any of my projects benefical a star would mean alot (more beautiful than I love you :) )
+
+### You can visit my blog through: https://deyaa1251.github.io/deyaa1251/
 <!--
 **deyaa1251/deyaa1251** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
